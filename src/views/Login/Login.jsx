@@ -25,7 +25,7 @@ const Login = () => {
     let user = userData.find(
       (user) => user.email === values.email && user.password === values.password
     );
-    if (user && user !== -1) {
+    if (user) {
       dispatch(updateLoginUser(user));
       navigate("/home");
     } else {

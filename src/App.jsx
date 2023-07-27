@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";    
 import Layout from "./Layouts/layout";
 import ProtectedRoute from "./Routes/ProtectedRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
@@ -14,10 +14,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
+      <Layout>
+        <Routes>
+          {/* <Route path="/" element={<Layout />}> */}
           <Route element={<ProtectedRoute />}>
-            <Route index element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="signup" element={<SignUpPage />} />
           </Route>
           <Route element={<PrivateRoute />}>
@@ -26,8 +27,9 @@ function App() {
             <Route path="head-tail" element={<HeadAndTailPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
+          {/* </Route> */}
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

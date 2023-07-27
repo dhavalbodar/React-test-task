@@ -14,7 +14,7 @@ export const loginSlice = createSlice({
     },
     logoutUser: (state) => {
       return {
-        ...state,
+        ...state, 
         loginUser: undefined,
       };
     },
